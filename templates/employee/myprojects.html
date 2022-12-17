@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block content %}
+{% include 'employee/_navbar.html'%}
+
+<div id="divimg">
+
+
+    <table>
+        <tr>
+
+            <th align = "center">Project ID</th>
+            <th align = "center">Project Name</th>
+            <th align = "center">Due Date</th>
+            <th align = "center">Sub Date</th>
+            <!-- <th align = "center">Mark</th> -->
+            <th align = "center">Status</th>
+            <th align = "center">Option</th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td>{{project.id}}</td>
+            <td>{{project.project_name}}</td>
+            <td>{{project.due_date}}</td>
+            <td>{{project.due_date}}</td>
+            <td>{{project.status}}</td>
+            <td>
+                <form action="{% url 'submit' %}" method="post">
+                    {%csrf_token%}
+                    <input type="hidden" name="pid" value="{{project.id}}">
+                    <button class="btn btn-success">Submit</button>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+    </div>
+
+{%endblock%}

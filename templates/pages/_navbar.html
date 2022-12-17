@@ -1,0 +1,48 @@
+{% load static %}
+<nav class="navbar navbar-dark navbar-expand-lg"  >
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar navbar-dark">
+      <a class="navbar-brand" href="{% url 'index'%}" style="font-size: 2rem; padding: 0 1rem;">
+      <img src="{% static 'images/logo.png'%}" width="45" height="45" class="d-inline-block align-bottom" alt="">
+      CORP
+    </a>
+  </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link
+        {% if '/' == request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{% url 'index'%}">Home</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link
+        {% if 'about' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{% url 'about'%}">About</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link
+        {% if 'contact' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{% url 'contact'%}">Contact</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link 
+        {% if 'login' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{%url 'login'%}">Login</a>
+        </li>
+    </ul>
+  </div>
+  </nav>
+<div class="divider"></div>

@@ -1,0 +1,56 @@
+{% extends 'base.html'%}
+{% block content %}
+{% include 'employee/_navbar.html'%}
+
+<div id="divimg">
+    <div>
+        <!-- <h2>Welcome <?php echo "$empName"; ?> </h2> -->
+        <br>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 25px; text-align: center;">Due Projects</h2>
+
+
+        <table>
+
+            <tr>
+                <th align="center">Project Name</th>
+                <th align="center">Due Date</th>
+
+            </tr>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.project_name}}</td>
+                <td>{{project.due_date}}</td>
+            </tr>
+            {%endfor%}
+
+        </table>
+
+
+        <br>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 25px; text-align: center;">Leave Status</h2>
+
+
+        <table>
+
+            <tr>
+
+                <th align="center">Start Date</th>
+                <th align="center">End Date</th>
+                <th align="center">Subject</th>
+                <th align="center">Status</th>
+            </tr>
+
+            {% for leave in leavestatus %}
+            <tr>
+                <td>{{leave.start_date}}</td>
+                <td>{{leave.end_date}}</td>
+                <td>{{leave.subject}}</td>
+                <td>{{leave.status}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+    </h2>
+</div>
+
+{%endblock%}

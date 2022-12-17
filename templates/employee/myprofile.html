@@ -1,0 +1,107 @@
+{% extends 'base.html'%}
+{% block content %}
+{% include 'employee/_navbar.html'%}
+
+
+<div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+    <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title">My Info</h2>
+                <form method="post" action="{% url 'updateinfo'%}">
+                  {%csrf_token%}
+                    {% for user in users %}
+
+                    <div class="input-group">
+                      <img src="{{user.photo.url}}" height = 150px width = 150px>
+                    </div>
+
+
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                              <p>First Name</p>
+                                 <input class="input--style-1" type="text" name="firstName" value="{{user.first_name}}" >
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                              <p>Last Name</p>
+                                <input class="input--style-1" type="text" name="lastName" value="{{user.last_name}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                          <div class="input-group">
+                            <p>Email</p>
+                              <input class="input--style-1" type="email"  name="email" value="{{user.email}}">
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <div class="input-group">
+                            <p>Username</p>
+                              <input class="input--style-1" type="text"  name="username" value="{{user.username}}">
+                          </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group">
+                              <p>Date of Birth</p>
+                                <input class="input--style-1" type="text" name="dob" value="{{user.dob}}" readonly>
+                               
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group">
+                              <p>Gender</p>
+                              <input class="input--style-1" type="text" name="gender" value="{{user.gender}}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                      <p>Contact Number</p>
+                        <input class="input--style-1" type="number" name="contact" value="{{user.phone}}">
+                    </div>
+
+                    
+                     <div class="input-group">
+                      <p>Address</p>
+                        <input class="input--style-1" type="text"  name="address" value="{{user.address}}">
+                    </div>
+
+                    <div class="input-group">
+                      <p>Department</p>
+                        <input class="input--style-1" type="text" name="dept" value="{{user.department}}">
+                    </div>
+
+                    <div class="input-group">
+                      <p>Degree</p>
+                        <input class="input--style-1" type="text" name="degree" value="{{user.degree}}">
+                    </div>
+
+
+                    <div class="input-group">
+                      <p>Total Salary</p>
+                        <input class="input--style-1" type="text" name="degree" value="{{user.salary}}" readonly>
+                    </div>
+                    <div class="p-t-20">
+                        <button class="btn btn-primary"  name="send" type="submit">Update Info</button>
+                    </div>
+                    {%endfor%}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

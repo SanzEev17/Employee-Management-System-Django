@@ -1,0 +1,51 @@
+{% load static %}
+<nav class="navbar navbar-dark navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link
+        {% if 'dashboard' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{% url 'dashboard'%}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link
+        {% if 'myprofile' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{% url 'myprofile'%}">My Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link
+        {% if 'myprojects' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{% url 'myprojects'%}">My Projects</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link 
+        {% if 'apply-leave' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{%url 'eleave'%}">Apply Leave</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link 
+        {% if 'leave-status' in request.path%}
+        active
+        {% endif %}
+        " aria-current="page" href="{%url 'leavestatus'%}">Leave Status</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+                <form class="nav-link" action="{% url 'logout'%}" method="post">
+                    {%csrf_token%}
+                    <button class="nav-link" type="submit">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="divider"></div>

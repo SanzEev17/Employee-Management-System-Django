@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block content %}
+{% include 'employee/_navbar.html'%}
+
+
+<table>
+    <tr>
+        <th align = "center">Name</th>
+        <th align = "center">Start Date</th>
+        <th align = "center">End Date</th>
+        <th align = "center">Subject</th>
+        <th align = "center">Status</th>
+    </tr>
+    {% for leave in leavestatus %}
+    <tr>
+        <td>{{leave.employee}}</td>
+        <td>{{leave.start_date}}</td>
+        <td>{{leave.end_date}}</td>
+        <td>{{leave.subject}}</td>
+        <td>{{leave.status}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+{%endblock%}
